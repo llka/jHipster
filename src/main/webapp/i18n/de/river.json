@@ -1,0 +1,25 @@
+{
+    "fishingApp": {
+        "river" : {
+            "home": {
+                "title": "Rivers",
+                "createLabel": "River erstellen",
+                "createOrEditLabel": "River erstellen oder bearbeiten"
+            },
+            "created": "River erstellt mit ID {{ param }}",
+            "updated": "River aktualisiert mit ID {{ param }}",
+            "deleted": "River gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll River {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "River"
+            },
+            "name": "Name",
+            "averageSpeed": "Average Speed",
+            "lengthInKm": "Length In Km",
+            "region": "Region",
+            "fishRiver": "Fish River"
+        }
+    }
+}

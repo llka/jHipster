@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "lake",
+            "otherEntityName": "lake",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "region"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "river",
+            "otherEntityName": "river",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 3
+        },
+        {
+            "fieldName": "postalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mainCity",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171130143050",
+    "entityTableName": "region",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "fishDemo"
+}

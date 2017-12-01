@@ -1,0 +1,11 @@
+{
+    "fishingApp": {
+        "FishDepth" : {
+            "null": "",
+            "SURFACE": "SURFACE",
+            "TOP": "TOP",
+            "MIDDLE": "MIDDLE",
+            "BOTTOM": "BOTTOM"
+        }
+    }
+}

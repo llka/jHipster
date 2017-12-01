@@ -1,0 +1,65 @@
+entity Lake {
+	name String required minlength(3),
+    averageDepth Integer,
+    maxDepth Integer
+}
+
+entity River {
+	name String required minlength(3),
+    averageSpeed Integer,
+  	lengthInKm Integer,
+}
+
+entity Region {
+	name String required minlength(3),
+	postalCode String,
+	mainCity String
+}
+
+entity Fish {
+	name String required minlength(3),
+    description String maxlength(200),
+    eatingType FishEatingType
+    avgWeight Integer,
+    maxWeight Integer,
+    avgLength Integer,
+    maxLength Integer,
+    maxAge Integer,
+    summerDepth FishDepth
+}
+enum FishDepth{
+	SURFACE,
+	TOP,
+    MIDDLE,
+    BOTTOM
+}
+
+enum FishEatingType {
+    CARNIVORE,
+	OMNIVORE,
+	HERBIVORE
+}
+
+relationship OneToOne {
+	Lake{region(name)} to Region{lake(name)}
+}
+
+relationship OneToMany {
+	River{region(name)} to Region{river(name)}
+}
+
+relationship ManyToOne {
+	River{fishRiver(name)} to Fish{river}
+}
+relationship ManyToOne {
+	Lake{fishLake(name)} to Fish{lake}
+}
+
+// Set pagination options
+paginate Lake, River, Region with pager
+paginate Fish with pagination
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with fishDemo

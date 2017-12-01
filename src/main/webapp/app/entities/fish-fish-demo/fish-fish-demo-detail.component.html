@@ -1,0 +1,57 @@
+
+<div *ngIf="fish">
+    <h2><span jhiTranslate="fishingApp.fish.detail.title">Fish</span> {{fish.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fishingApp.fish.name">Name</span></dt>
+        <dd>
+            <span>{{fish.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.description">Description</span></dt>
+        <dd>
+            <span>{{fish.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.eatingType">Eating Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'fishingApp.FishEatingType.' + fish.eatingType}}">{{fish.eatingType}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.avgWeight">Avg Weight</span></dt>
+        <dd>
+            <span>{{fish.avgWeight}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.maxWeight">Max Weight</span></dt>
+        <dd>
+            <span>{{fish.maxWeight}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.avgLength">Avg Length</span></dt>
+        <dd>
+            <span>{{fish.avgLength}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.maxLength">Max Length</span></dt>
+        <dd>
+            <span>{{fish.maxLength}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.maxAge">Max Age</span></dt>
+        <dd>
+            <span>{{fish.maxAge}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.fish.summerDepth">Summer Depth</span></dt>
+        <dd>
+            <span jhiTranslate="{{'fishingApp.FishDepth.' + fish.summerDepth}}">{{fish.summerDepth}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'fish-fish-demo/'+ fish.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

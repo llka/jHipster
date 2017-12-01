@@ -1,0 +1,81 @@
+<div>
+    <h2>
+        <span jhiTranslate="fishingApp.lake.home.title">Lakes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-lake-fish-demo" [routerLink]="['/', { outlets: { popup: ['lake-fish-demo-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="fishingApp.lake.home.createLabel">
+            Create new Lake
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="lakes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="fishingApp.lake.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="averageDepth"><span jhiTranslate="fishingApp.lake.averageDepth">Average Depth</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="maxDepth"><span jhiTranslate="fishingApp.lake.maxDepth">Max Depth</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="region.name"><span jhiTranslate="fishingApp.lake.region">Region</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fishLake.name"><span jhiTranslate="fishingApp.lake.fishLake">Fish Lake</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let lake of lakes ;trackBy: trackId">
+                <td><a [routerLink]="['../lake-fish-demo', lake.id ]">{{lake.id}}</a></td>
+                <td>{{lake.name}}</td>
+                <td>{{lake.averageDepth}}</td>
+                <td>{{lake.maxDepth}}</td>
+                <td>
+                    <div *ngIf="lake.region">
+                        <a [routerLink]="['../region-fish-demo', lake.region?.id ]" >{{lake.region?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="lake.fishLake">
+                        <a [routerLink]="['../fish-fish-demo', lake.fishLake?.id ]" >{{lake.fishLake?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../lake-fish-demo', lake.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'lake-fish-demo/'+ lake.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'lake-fish-demo/'+ lake.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="lakes && lakes.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

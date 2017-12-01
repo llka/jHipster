@@ -1,0 +1,31 @@
+{
+    "fishingApp": {
+        "fish" : {
+            "home": {
+                "title": "Fish",
+                "createLabel": "Create a new Fish",
+                "createOrEditLabel": "Create or edit a Fish"
+            },
+            "created": "A new Fish is created with identifier {{ param }}",
+            "updated": "A Fish is updated with identifier {{ param }}",
+            "deleted": "A Fish is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fish {{ id }}?"
+            },
+            "detail": {
+                "title": "Fish"
+            },
+            "name": "Name",
+            "description": "Description",
+            "eatingType": "Eating Type",
+            "avgWeight": "Avg Weight",
+            "maxWeight": "Max Weight",
+            "avgLength": "Avg Length",
+            "maxLength": "Max Length",
+            "maxAge": "Max Age",
+            "summerDepth": "Summer Depth",
+            "river": "River",
+            "lake": "Lake"
+        }
+    }
+}

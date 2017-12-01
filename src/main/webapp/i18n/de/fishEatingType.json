@@ -1,0 +1,10 @@
+{
+    "fishingApp": {
+        "FishEatingType" : {
+            "null": "",
+            "CARNIVORE": "CARNIVORE",
+            "OMNIVORE": "OMNIVORE",
+            "HERBIVORE": "HERBIVORE"
+        }
+    }
+}

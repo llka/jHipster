@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Lake.
+    -->
+    <changeSet id="20171130143048-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="region_id"
+                                 baseTableName="lake"
+                                 constraintName="fk_lake_region_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"/>
+
+        <addForeignKeyConstraint baseColumnNames="fish_lake_id"
+                                 baseTableName="lake"
+                                 constraintName="fk_lake_fish_lake_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fish"/>
+
+    </changeSet>
+</databaseChangeLog>

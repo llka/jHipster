@@ -1,0 +1,64 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myLakeLabel" jhiTranslate="fishingApp.lake.home.createOrEditLabel">Create or edit a Lake</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!lake.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="lake.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fishingApp.lake.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="lake.name" required minlength="3"/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 3 }">
+                   This field is required to be at least 3 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fishingApp.lake.averageDepth" for="field_averageDepth">Average Depth</label>
+            <input type="number" class="form-control" name="averageDepth" id="field_averageDepth"
+                [(ngModel)]="lake.averageDepth" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fishingApp.lake.maxDepth" for="field_maxDepth">Max Depth</label>
+            <input type="number" class="form-control" name="maxDepth" id="field_maxDepth"
+                [(ngModel)]="lake.maxDepth" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fishingApp.lake.region" for="field_region">Region</label>
+            <select class="form-control" id="field_region" name="region" [(ngModel)]="lake.region">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="regionOption.id === lake.region?.id ? lake.region : regionOption" *ngFor="let regionOption of regions; trackBy: trackRegionById">{{regionOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fishingApp.lake.fishLake" for="field_fishLake">Fish Lake</label>
+            <select class="form-control" id="field_fishLake" name="fishLake" [(ngModel)]="lake.fishLake" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="fishOption.id === lake.fishLake?.id ? lake.fishLake : fishOption" *ngFor="let fishOption of fish; trackBy: trackFishById">{{fishOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

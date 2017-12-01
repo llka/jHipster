@@ -1,0 +1,25 @@
+{
+    "fishingApp": {
+        "lake" : {
+            "home": {
+                "title": "Lakes",
+                "createLabel": "Lake を追加",
+                "createOrEditLabel": "Lakeを追加または編集"
+            },
+            "created": "A new Lake is created with identifier {{ param }}",
+            "updated": "A Lake is updated with identifier {{ param }}",
+            "deleted": "A Lake is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Lake {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Lake"
+            },
+            "name": "Name",
+            "averageDepth": "Average Depth",
+            "maxDepth": "Max Depth",
+            "region": "Region",
+            "fishLake": "Fish Lake"
+        }
+    }
+}

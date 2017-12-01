@@ -1,0 +1,25 @@
+{
+    "fishingApp": {
+        "river" : {
+            "home": {
+                "title": "Rivers",
+                "createLabel": "River を追加",
+                "createOrEditLabel": "Riverを追加または編集"
+            },
+            "created": "A new River is created with identifier {{ param }}",
+            "updated": "A River is updated with identifier {{ param }}",
+            "deleted": "A River is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "River {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "River"
+            },
+            "name": "Name",
+            "averageSpeed": "Average Speed",
+            "lengthInKm": "Length In Km",
+            "region": "Region",
+            "fishRiver": "Fish River"
+        }
+    }
+}

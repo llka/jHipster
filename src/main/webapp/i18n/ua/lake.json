@@ -1,0 +1,25 @@
+{
+    "fishingApp": {
+        "lake" : {
+            "home": {
+                "title": "Lakes",
+                "createLabel": "Створити новий Lake",
+                "createOrEditLabel": "Створити чи редагувати Lake"
+            },
+            "created": "Новий Lake створений з ідентифікатором {{ param }}",
+            "updated": "Lake оновлений з ідентифікатором {{ param }}",
+            "deleted": "Lake видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Lake {{ id }}?"
+            },
+            "detail": {
+                "title": "Lake"
+            },
+            "name": "Name",
+            "averageDepth": "Average Depth",
+            "maxDepth": "Max Depth",
+            "region": "Region",
+            "fishLake": "Fish Lake"
+        }
+    }
+}

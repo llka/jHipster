@@ -1,0 +1,73 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "river",
+            "otherEntityName": "river",
+            "otherEntityRelationshipName": "fishRiver"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lake",
+            "otherEntityName": "lake",
+            "otherEntityRelationshipName": "fishLake"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 3
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "eatingType",
+            "fieldType": "FishEatingType",
+            "fieldValues": "CARNIVORE,OMNIVORE,HERBIVORE"
+        },
+        {
+            "fieldName": "avgWeight",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxWeight",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "avgLength",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxLength",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxAge",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "summerDepth",
+            "fieldType": "FishDepth",
+            "fieldValues": "SURFACE,TOP,MIDDLE,BOTTOM"
+        }
+    ],
+    "changelogDate": "20171130143051",
+    "entityTableName": "fish",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "fishDemo"
+}

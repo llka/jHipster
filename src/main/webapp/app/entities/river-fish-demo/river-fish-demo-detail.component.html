@@ -1,0 +1,39 @@
+
+<div *ngIf="river">
+    <h2><span jhiTranslate="fishingApp.river.detail.title">River</span> {{river.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fishingApp.river.name">Name</span></dt>
+        <dd>
+            <span>{{river.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.river.averageSpeed">Average Speed</span></dt>
+        <dd>
+            <span>{{river.averageSpeed}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.river.lengthInKm">Length In Km</span></dt>
+        <dd>
+            <span>{{river.lengthInKm}}</span>
+        </dd>
+        <dt><span jhiTranslate="fishingApp.river.fishRiver">Fish River</span></dt>
+        <dd>
+            <div *ngIf="river.fishRiver">
+                <a [routerLink]="['/fish-fish-demo', river.fishRiver?.id]">{{river.fishRiver?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'river-fish-demo/'+ river.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

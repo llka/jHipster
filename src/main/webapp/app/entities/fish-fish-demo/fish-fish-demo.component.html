@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="fishingApp.fish.home.title">Fish</span>
+        <button class="btn btn-primary float-right jh-create-entity create-fish-fish-demo" [routerLink]="['/', { outlets: { popup: ['fish-fish-demo-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="fishingApp.fish.home.createLabel">
+            Create new Fish
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="fish">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="fishingApp.fish.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="description"><span jhiTranslate="fishingApp.fish.description">Description</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="eatingType"><span jhiTranslate="fishingApp.fish.eatingType">Eating Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="avgWeight"><span jhiTranslate="fishingApp.fish.avgWeight">Avg Weight</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="maxWeight"><span jhiTranslate="fishingApp.fish.maxWeight">Max Weight</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="avgLength"><span jhiTranslate="fishingApp.fish.avgLength">Avg Length</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="maxLength"><span jhiTranslate="fishingApp.fish.maxLength">Max Length</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="maxAge"><span jhiTranslate="fishingApp.fish.maxAge">Max Age</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="summerDepth"><span jhiTranslate="fishingApp.fish.summerDepth">Summer Depth</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fish of fish ;trackBy: trackId">
+                <td><a [routerLink]="['../fish-fish-demo', fish.id ]">{{fish.id}}</a></td>
+                <td>{{fish.name}}</td>
+                <td>{{fish.description}}</td>
+                <td jhiTranslate="{{'fishingApp.FishEatingType.' + fish.eatingType}}">{{fish.eatingType}}</td>
+                <td>{{fish.avgWeight}}</td>
+                <td>{{fish.maxWeight}}</td>
+                <td>{{fish.avgLength}}</td>
+                <td>{{fish.maxLength}}</td>
+                <td>{{fish.maxAge}}</td>
+                <td jhiTranslate="{{'fishingApp.FishDepth.' + fish.summerDepth}}">{{fish.summerDepth}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../fish-fish-demo', fish.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fish-fish-demo/'+ fish.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fish-fish-demo/'+ fish.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="fish && fish.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [pageSize]="itemsPerPage" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

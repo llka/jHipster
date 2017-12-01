@@ -1,0 +1,31 @@
+{
+    "fishingApp": {
+        "fish" : {
+            "home": {
+                "title": "Fish",
+                "createLabel": "Створити новий Fish",
+                "createOrEditLabel": "Створити чи редагувати Fish"
+            },
+            "created": "Новий Fish створений з ідентифікатором {{ param }}",
+            "updated": "Fish оновлений з ідентифікатором {{ param }}",
+            "deleted": "Fish видалений з ідентифікатором {{ param }}",
+            "delete": {
+                "question": "Ви впевнені, що хочете видалити Fish {{ id }}?"
+            },
+            "detail": {
+                "title": "Fish"
+            },
+            "name": "Name",
+            "description": "Description",
+            "eatingType": "Eating Type",
+            "avgWeight": "Avg Weight",
+            "maxWeight": "Max Weight",
+            "avgLength": "Avg Length",
+            "maxLength": "Max Length",
+            "maxAge": "Max Age",
+            "summerDepth": "Summer Depth",
+            "river": "River",
+            "lake": "Lake"
+        }
+    }
+}

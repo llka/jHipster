@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "region",
+            "otherEntityName": "region",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "lake(name)"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fishLake",
+            "otherEntityName": "fish",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 3
+        },
+        {
+            "fieldName": "averageDepth",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxDepth",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20171130143048",
+    "entityTableName": "lake",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "fishDemo"
+}

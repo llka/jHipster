@@ -78,6 +78,24 @@ Generic styles
 
 .footer {
     border-top: 1px solid rgba(0,0,0,.125);
+    color: #fff;
+    border-radius: 5px;
+    background-color: #353d47;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+.footer_position_bottom{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 98%;
+    margin: 8px;
+}
+.footer__logo{
+    padding-bottom: 1%;
+    padding-top: 1%;
+    width: auto;
 }
 
 /* ==========================================================================

@@ -42,6 +42,15 @@ public class CacheConfiguration {
             cm.createCache(org.jhipster.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(org.jhipster.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(org.jhipster.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.Lake.class.getName(), jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.River.class.getName(), jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.River.class.getName() + ".rivers", jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.Region.class.getName(), jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.Fish.class.getName(), jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.Fish.class.getName() + ".fish", jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.River.class.getName() + ".regions", jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.Fish.class.getName() + ".rivers", jcacheConfiguration);
+            cm.createCache(org.jhipster.domain.Fish.class.getName() + ".lakes", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

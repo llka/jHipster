@@ -7,6 +7,10 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entitäten",
+                "lakeFishDemo": "Lake",
+                "riverFishDemo": "River",
+                "regionFishDemo": "Region",
+                "fishFishDemo": "Fish",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -128,5 +132,5 @@
         "emailexists": "Email wird bereits verwendet!",
         "idexists": "Ein neuer {{entityName}} kann noch keine ID haben"
     },
-    "footer": "Dies ist Ihre Fußzeile"
+    "footer__logo": "Ilka Group LTD"
 }
